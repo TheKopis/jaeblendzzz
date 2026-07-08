@@ -47,6 +47,15 @@ body {
   line-height: 1.65;
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
+  -webkit-tap-highlight-color: transparent;
+}
+
+a,
+button,
+input,
+select,
+textarea {
+  touch-action: manipulation;
 }
 
 ::selection {
@@ -89,7 +98,9 @@ button {
   background-size: auto, auto, 900px 900px;
 }
 
-/* Reflective sheen that slowly sweeps across marble sections */
+/* Reflective sheen that slowly sweeps across marble sections.
+   Animates transform (not background-position) so it runs on the
+   compositor — no main-thread repaints on mobile. */
 .marble::after {
   content: '';
   position: absolute;
@@ -103,15 +114,15 @@ button {
     rgba(255, 255, 255, 0.045) 54%,
     transparent 70%
   );
-  background-size: 300% 100%;
   animation: sheen-sweep 9s var(--ease) infinite;
+  will-change: transform;
   pointer-events: none;
 }
 
 @keyframes sheen-sweep {
-  0% { background-position: 130% 0; }
-  60% { background-position: -30% 0; }
-  100% { background-position: -30% 0; }
+  0% { transform: translateX(110%); }
+  60% { transform: translateX(-110%); }
+  100% { transform: translateX(-110%); }
 }
 
 /* Polished-stone card */
@@ -156,16 +167,20 @@ button {
   pointer-events: none;
 }
 
-.slab:hover {
-  transform: translateY(-5px);
-  border-color: var(--line-strong);
-  box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.14),
-    0 32px 64px -24px rgba(0, 0, 0, 0.95);
-}
+/* Hover lift/sheen only on real pointers — on touch it just causes
+   sticky highlight states after a tap */
+@media (hover: hover) and (pointer: fine) {
+  .slab:hover {
+    transform: translateY(-5px);
+    border-color: var(--line-strong);
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.14),
+      0 32px 64px -24px rgba(0, 0, 0, 0.95);
+  }
 
-.slab:hover::after {
-  transform: translateX(120%);
+  .slab:hover::after {
+    transform: translateX(120%);
+  }
 }
 
 /* ---------- Metallic text ---------- */
@@ -272,6 +287,27 @@ button {
 section {
   padding: 7rem 0;
   position: relative;
+}
+
+/* Below-fold sections skip layout/paint until scrolled near —
+   big first-render win on phones */
+#services,
+#gallery,
+#reviews,
+#about,
+#book {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 900px;
+}
+
+@media (max-width: 640px) {
+  section {
+    padding: 4.5rem 0;
+  }
+
+  .section-head {
+    margin-bottom: 2.6rem;
+  }
 }
 
 .section-head {

@@ -17,6 +17,14 @@ export default function Nav({ onBook }) {
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
+  // keep the page from scrolling behind the open mobile menu
+  useEffect(() => {
+    document.body.style.overflow = open ? 'hidden' : ''
+    return () => {
+      document.body.style.overflow = ''
+    }
+  }, [open])
+
   return (
     <header className={`nav ${scrolled || open ? 'scrolled' : ''}`}>
       <div className="container nav-inner">
