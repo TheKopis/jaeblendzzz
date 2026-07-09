@@ -1,8 +1,18 @@
 import { INSTAGRAM_URL } from '../config'
 
+const MARQUEE = 'JAEBLENDZZZ · STOCKTON CA · PRECISION CUTS · '
+
 export default function Footer({ onBook }) {
   return (
     <footer className="footer">
+      {/* giant engraved marquee — outlined type sliding like a wall sign */}
+      <div className="footer-marquee" aria-hidden="true">
+        <div className="footer-marquee-track">
+          <span className="display">{MARQUEE.repeat(2)}</span>
+          <span className="display">{MARQUEE.repeat(2)}</span>
+        </div>
+      </div>
+
       <div className="container footer-inner">
         <span className="footer-logo metal-text">JAEBLENDZZZ</span>
 

@@ -9,12 +9,14 @@ export default function BookModal({ open, onClose }) {
 
     setLoaded(false)
     document.body.style.overflow = 'hidden'
+    document.body.classList.add('modal-open')
 
     const onKey = (e) => e.key === 'Escape' && onClose()
     window.addEventListener('keydown', onKey)
 
     return () => {
       document.body.style.overflow = ''
+      document.body.classList.remove('modal-open')
       window.removeEventListener('keydown', onKey)
     }
   }, [open, onClose])

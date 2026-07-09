@@ -1,5 +1,6 @@
 import useReveal from '../useReveal'
 import { INSTAGRAM_URL, SQUARE_BOOKING_URL } from '../config'
+import ClipperSVG from './ClipperSVG'
 
 export default function Booking({ onBook }) {
   const ref = useReveal()
@@ -66,9 +67,7 @@ export default function Booking({ onBook }) {
         </div>
 
         <div className="slab booking-panel">
-          <span className="booking-panel-mark display metal-text" aria-hidden="true">
-            JB
-          </span>
+          <ClipperSVG className="booking-clipper" buzzing />
           <h3 className="display">Ready when you are</h3>
           <p>
             Real-time availability. Takes about a minute — no account needed.

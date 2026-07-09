@@ -28,8 +28,11 @@ export default function Reviews() {
               key={`${review.name}-${i}`}
               aria-hidden={i >= REVIEWS.length}
             >
+              <span className="review-quote display" aria-hidden="true">
+                “
+              </span>
               <Stars count={review.stars} />
-              <blockquote>“{review.quote}”</blockquote>
+              <blockquote>{review.quote}</blockquote>
               <figcaption>— {review.name}</figcaption>
             </figure>
           ))}
