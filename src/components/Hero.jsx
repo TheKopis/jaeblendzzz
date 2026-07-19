@@ -1,3 +1,5 @@
+import Crown from './Crown'
+
 export default function Hero({ onBook }) {
   return (
     <section className="hero" id="top">
@@ -8,24 +10,28 @@ export default function Hero({ onBook }) {
       </div>
 
       <div className="container hero-mid">
-        <p className="hero-statement">
-          Appointment-only barbershop by Jasiel Escalera. Fades, tapers,
-          straight-razor work.
-        </p>
+        <div className="hero-left">
+          <p className="hero-statement">
+            Appointment-only barbershop by Jasiel Escalera. Fades, tapers,
+            straight-razor work.
+          </p>
 
-        <div className="hero-status">
-          <span className="status-dot" aria-hidden="true" />
-          <span>Booking open — appointments through Square</span>
+          <div className="hero-status">
+            <span className="status-dot" aria-hidden="true" />
+            <span>Booking open — appointments through Square</span>
+          </div>
+
+          <div className="hero-actions">
+            <button type="button" className="pill" onClick={onBook}>
+              Book an appointment
+            </button>
+            <a href="tel:+12094061061" className="tlink">
+              (209) 406-1061
+            </a>
+          </div>
         </div>
 
-        <div className="hero-actions">
-          <button type="button" className="pill" onClick={onBook}>
-            Book an appointment
-          </button>
-          <a href="tel:+12094061061" className="tlink">
-            (209) 406-1061
-          </a>
-        </div>
+        <Crown className="hero-crown" />
       </div>
 
       <div className="hero-word-wrap" aria-hidden="true">

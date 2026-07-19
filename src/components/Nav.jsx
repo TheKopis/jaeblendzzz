@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import Crown from './Crown'
 
 const LINKS = [
   { label: 'Services', href: '#services', id: 'services' },
@@ -46,6 +47,7 @@ export default function Nav({ onBook }) {
     <header className={`nav ${scrolled || open ? 'scrolled' : ''}`}>
       <div className="container nav-inner">
         <a href="#top" className="nav-logo" onClick={() => setOpen(false)}>
+          <Crown className="nav-crown" solid />
           Jaeblendzzz
         </a>
 

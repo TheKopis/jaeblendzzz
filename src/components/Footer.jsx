@@ -1,11 +1,15 @@
 import { INSTAGRAM_URL } from '../config'
+import Crown from './Crown'
 
 export default function Footer({ onBook }) {
   return (
     <footer className="footer">
       <div className="container">
         <div className="footer-top">
-          <span className="footer-logo">Jaeblendzzz</span>
+          <span className="footer-logo">
+            <Crown className="footer-crown" solid />
+            Jaeblendzzz
+          </span>
           <div className="footer-links">
             <a href={INSTAGRAM_URL} target="_blank" rel="noreferrer">
               Instagram

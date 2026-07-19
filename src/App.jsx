@@ -20,10 +20,12 @@ export default function App() {
       <Nav onBook={openBooking} />
       <main>
         <Hero onBook={openBooking} />
+        <div className="ribbon" aria-hidden="true" />
         <Services onBook={openBooking} />
         <Gallery />
         <Reviews />
         <About />
+        <div className="ribbon" aria-hidden="true" />
         <Booking onBook={openBooking} />
       </main>
       <Footer onBook={openBooking} />

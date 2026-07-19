@@ -1,4 +1,5 @@
 import useReveal from '../useReveal'
+import Crown from './Crown'
 
 // Live menu from his Square booking site (jaeblendzzz.square.site)
 const PACKAGES = [
@@ -65,6 +66,7 @@ export default function Services({ onBook }) {
         <div className="packages reveal" ref={packagesRef}>
           {PACKAGES.map((pkg, i) => (
             <article className="package stagger-item" style={{ '--i': i }} key={pkg.name}>
+              <Crown className="package-crown" />
               <h3>{pkg.name}</h3>
               <p>{pkg.desc}</p>
               <span className="package-price">{pkg.price}</span>
