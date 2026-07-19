@@ -21,6 +21,16 @@ export default function App() {
       <main>
         <Hero onBook={openBooking} />
         <div className="ribbon" aria-hidden="true" />
+        <div className="ticker" aria-hidden="true">
+          <div className="ticker-track">
+            {[0, 1].map((n) => (
+              <span key={n}>
+                Jaeblendzzz ♛ Est. 2016 ♛ Stockton, California ♛ Appointment
+                only ♛ Booking open ♛ Fades · Tapers · Straight razor ♛{' '}
+              </span>
+            ))}
+          </div>
+        </div>
         <Services onBook={openBooking} />
         <Gallery />
         <Reviews />

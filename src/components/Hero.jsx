@@ -1,8 +1,12 @@
 import Crown from './Crown'
+import { heroFade } from '../patterns'
+
+const FADE_URI = heroFade()
 
 export default function Hero({ onBook }) {
   return (
     <section className="hero" id="top">
+      <div className="hero-dots" style={{ backgroundImage: FADE_URI }} aria-hidden="true" />
       <div className="container hero-meta small-caps">
         <span>Est. 2016</span>
         <span>Barbershop — Stockton, California</span>

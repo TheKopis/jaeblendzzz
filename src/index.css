@@ -208,6 +208,7 @@ section {
   text-transform: uppercase;
   font-size: clamp(2.4rem, 6vw, 4.4rem);
   line-height: 0.94;
+  text-shadow: 0.045em 0.045em 0 rgba(207, 46, 31, 0.55);
 }
 
 .sec-note {
