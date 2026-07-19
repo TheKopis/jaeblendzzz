@@ -18,7 +18,6 @@ export default function Nav({ onBook }) {
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
-  // highlight the section currently in view
   useEffect(() => {
     const sections = ['services', 'gallery', 'reviews', 'about', 'book']
       .map((id) => document.getElementById(id))
@@ -36,7 +35,6 @@ export default function Nav({ onBook }) {
     return () => observer.disconnect()
   }, [])
 
-  // keep the page from scrolling behind the open mobile menu
   useEffect(() => {
     document.body.style.overflow = open ? 'hidden' : ''
     return () => {
@@ -47,8 +45,8 @@ export default function Nav({ onBook }) {
   return (
     <header className={`nav ${scrolled || open ? 'scrolled' : ''}`}>
       <div className="container nav-inner">
-        <a href="#top" className="nav-logo metal-text" onClick={() => setOpen(false)}>
-          JAEBLENDZZZ
+        <a href="#top" className="nav-logo" onClick={() => setOpen(false)}>
+          jaeblendzzz
         </a>
 
         <nav>
@@ -67,13 +65,13 @@ export default function Nav({ onBook }) {
             <li>
               <button
                 type="button"
-                className="btn btn-solid nav-book"
+                className="pill nav-book"
                 onClick={() => {
                   setOpen(false)
                   onBook()
                 }}
               >
-                Book Now
+                Book
               </button>
             </li>
           </ul>

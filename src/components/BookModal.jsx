@@ -25,9 +25,9 @@ export default function BookModal({ open, onClose }) {
 
   return (
     <div className="modal-overlay" onClick={onClose} role="dialog" aria-modal="true" aria-label="Book an appointment">
-      <div className="modal-panel slab" onClick={(e) => e.stopPropagation()}>
+      <div className="modal-panel" onClick={(e) => e.stopPropagation()}>
         <div className="modal-bar">
-          <span className="modal-title metal-text">Book with Jaeblendzzz</span>
+          <span className="modal-title">Book with Jaeblendzzz</span>
           <div className="modal-actions">
             <a href={SQUARE_BOOKING_URL} target="_blank" rel="noreferrer" className="modal-newtab">
               Open in new tab ↗

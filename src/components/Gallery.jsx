@@ -2,34 +2,41 @@ import useReveal from '../useReveal'
 import { INSTAGRAM_URL } from '../config'
 import { TILE_PATTERNS } from '../patterns'
 
-// Each tile's artwork is generated from the geometry of the cut itself —
-// a fade is a density gradient, a burst fade radiates from the ear,
-// waves roll from the crown. Swap tiles for photos when they land.
+// Tile artwork is generated from the geometry of each cut.
+// Swap for photos when they land.
 const TILES = [
-  { label: 'Skin Fade', sub: 'Blended to nothing' },
-  { label: 'Taper + Beard', sub: 'Follow the hairline' },
-  { label: 'Burst Fade', sub: 'Radiating from the ear' },
-  { label: 'Textured Crop', sub: 'Choppy on top' },
-  { label: 'Waves Lineup', sub: 'Rolling from the crown' },
-  { label: 'Freestyle Design', sub: 'Carved with the razor' },
+  { label: 'Skin fade', sub: 'Blended to nothing' },
+  { label: 'Taper + beard', sub: 'Follows the hairline' },
+  { label: 'Burst fade', sub: 'Radiates from the ear' },
+  { label: 'Textured crop', sub: 'Choppy on top' },
+  { label: 'Waves lineup', sub: 'Rolling from the crown' },
+  { label: 'Freestyle design', sub: 'Carved with the razor' },
 ]
+
+const PATTERN_KEYS = {
+  'Skin fade': 'Skin Fade',
+  'Taper + beard': 'Taper + Beard',
+  'Burst fade': 'Burst Fade',
+  'Textured crop': 'Textured Crop',
+  'Waves lineup': 'Waves Lineup',
+  'Freestyle design': 'Freestyle Design',
+}
 
 export default function Gallery() {
   const ref = useReveal()
 
   return (
-    <section id="gallery" className="marble">
+    <section id="gallery">
       <div className="container">
         <div className="section-head">
-          <span className="eyebrow">The Work</span>
-          <h2 className="display metal-text">Gallery</h2>
-          <p>The anatomy of a cut — each pattern drawn from the fade it represents.</p>
+          <h2 className="h2">The craft.</h2>
+          <p className="lead">The anatomy of a cut — each pattern drawn from the fade it represents.</p>
         </div>
 
         <div className="gallery-grid reveal" ref={ref}>
           {TILES.map((tile, i) => (
             <a
-              className="slab gallery-tile stagger-item"
+              className="gallery-tile stagger-item"
               style={{ '--i': i }}
               key={tile.label}
               href={INSTAGRAM_URL}
@@ -38,7 +45,7 @@ export default function Gallery() {
             >
               <span
                 className="gallery-art"
-                style={{ backgroundImage: TILE_PATTERNS[tile.label] }}
+                style={{ backgroundImage: TILE_PATTERNS[PATTERN_KEYS[tile.label]] }}
                 aria-hidden="true"
               />
               <span className="gallery-caption">
@@ -51,8 +58,8 @@ export default function Gallery() {
 
         <p className="gallery-note">
           Full portfolio on Instagram —{' '}
-          <a href={INSTAGRAM_URL} target="_blank" rel="noreferrer">
-            @jaeblendzzz
+          <a href={INSTAGRAM_URL} target="_blank" rel="noreferrer" className="tlink">
+            @jaeblendzzz &rsaquo;
           </a>
         </p>
       </div>

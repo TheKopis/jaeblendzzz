@@ -1,83 +1,58 @@
 import { useEffect, useRef } from 'react'
-import { INSTAGRAM_URL } from '../config'
 import { heroFade } from '../patterns'
-import ClipperSVG from './ClipperSVG'
 
-const TITLE = 'JAEBLENDZZZ'
 const FADE_URI = heroFade()
 
 export default function Hero({ onBook }) {
-  const sectionRef = useRef(null)
+  const innerRef = useRef(null)
 
-  // reflective glint follows the mouse across the marble — desktop only
+  // content gently fades and drifts as you scroll away — nothing more
   useEffect(() => {
-    if (!window.matchMedia('(pointer: fine)').matches) return
-    const el = sectionRef.current
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
+    const el = innerRef.current
     if (!el) return
 
     let raf = 0
-    let mx = 0
-    let my = 0
-    const apply = () => {
+    const update = () => {
       raf = 0
-      el.style.setProperty('--gx', `${mx}px`)
-      el.style.setProperty('--gy', `${my}px`)
+      const y = window.scrollY
+      const vh = window.innerHeight
+      const p = Math.min(1, y / (vh * 0.6))
+      el.style.opacity = String(1 - p * 0.9)
+      el.style.transform = `translateY(${y * 0.14}px)`
     }
-    const onMove = (e) => {
-      const rect = el.getBoundingClientRect()
-      mx = e.clientX - rect.left
-      my = e.clientY - rect.top
-      if (!raf) raf = requestAnimationFrame(apply)
+    const onScroll = () => {
+      if (!raf) raf = requestAnimationFrame(update)
     }
-    el.addEventListener('mousemove', onMove, { passive: true })
+    window.addEventListener('scroll', onScroll, { passive: true })
     return () => {
-      el.removeEventListener('mousemove', onMove)
+      window.removeEventListener('scroll', onScroll)
       if (raf) cancelAnimationFrame(raf)
     }
   }, [])
 
   return (
-    <section className="hero marble" id="top" ref={sectionRef}>
-      <div className="hero-fadedots" style={{ backgroundImage: FADE_URI }} aria-hidden="true" />
-      <div className="hero-glint" aria-hidden="true" />
+    <section className="hero" id="top">
+      <div className="container hero-inner" ref={innerRef}>
+        <span className="hero-brand">jaeblendzzz</span>
 
-      <div className="container hero-inner">
-        <span className="eyebrow">Precision · Craft · Clean Fades</span>
+        <h1 className="h1 hero-title">Sharp. Every&nbsp;time.</h1>
 
-        <h1 className="display hero-title metal-text" aria-label={TITLE}>
-          {TITLE.split('').map((ch, i) => (
-            <span className="ltr" key={i} style={{ '--li': i }} aria-hidden="true">
-              {ch}
-            </span>
-          ))}
-        </h1>
-
-        {/* the clipper cuts the lineup under the name */}
-        <div className="hero-lineup" aria-hidden="true">
-          <span className="hero-lineup-line" />
-          <span className="hero-lineup-carrier">
-            <ClipperSVG className="hero-lineup-clipper" buzzing />
-          </span>
-        </div>
-
-        <p className="hero-sub">
-          Every cut carved like stone. Sharp lines, seamless fades, and a finish
-          polished to a mirror shine.
+        <p className="lead hero-sub">
+          Precision cuts by Jasiel Escalera. Stockton,&nbsp;CA.
         </p>
 
         <div className="hero-ctas">
-          <button type="button" className="btn btn-solid" onClick={onBook}>
-            Book a Cut
+          <button type="button" className="pill" onClick={onBook}>
+            Book an appointment
           </button>
-          <a href="#gallery" className="btn btn-ghost">View Work</a>
+          <a href="#services" className="tlink">
+            Explore services &rsaquo;
+          </a>
         </div>
-
-        <a className="hero-handle" href={INSTAGRAM_URL} target="_blank" rel="noreferrer">
-          @jaeblendzzz
-        </a>
       </div>
 
-      <div className="hero-scroll" aria-hidden="true" />
+      <div className="hero-fade-band" style={{ backgroundImage: FADE_URI }} aria-hidden="true" />
     </section>
   )
 }
