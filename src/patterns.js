@@ -4,7 +4,7 @@
 
 const W = 300
 const H = 380
-const INK = '%23cfcfd6' // url-encoded #cfcfd6
+const INK = '%23131311' // url-encoded ink for print-halftone on paper
 
 // deterministic pseudo-random so builds are stable
 function seeded(seed) {

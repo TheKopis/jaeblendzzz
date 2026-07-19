@@ -3,9 +3,9 @@ import { INSTAGRAM_URL } from '../config'
 export default function Footer({ onBook }) {
   return (
     <footer className="footer">
-      <div className="container footer-inner">
+      <div className="container">
         <div className="footer-top">
-          <span className="footer-logo">jaeblendzzz</span>
+          <span className="footer-logo">Jaeblendzzz</span>
           <div className="footer-links">
             <a href={INSTAGRAM_URL} target="_blank" rel="noreferrer">
               Instagram
@@ -17,9 +17,8 @@ export default function Footer({ onBook }) {
             <a href="#top">Top</a>
           </div>
         </div>
-        <hr className="hairline" />
         <p className="footer-fine">
-          © {new Date().getFullYear()} JaeBlendzzz LLC. 6360 Pacific Ave, Suite 2, Stockton, CA 95207.
+          © {new Date().getFullYear()} JaeBlendzzz LLC — 6360 Pacific Ave, Suite 2, Stockton, CA 95207
         </p>
       </div>
     </footer>

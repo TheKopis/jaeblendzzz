@@ -13,7 +13,7 @@ export default function MobileBookBar({ onBook }) {
   return (
     <div className={`mobile-book-bar ${visible ? 'show' : ''}`}>
       <div className="mobile-book-copy">
-        <span className="mobile-book-brand">jaeblendzzz</span>
+        <span className="mobile-book-brand">Jaeblendzzz</span>
         <span className="mobile-book-price">Cuts from $40 · Stockton, CA</span>
       </div>
       <button type="button" className="pill mobile-book-btn" onClick={onBook}>

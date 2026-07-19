@@ -1,58 +1,36 @@
-import { useEffect, useRef } from 'react'
-import { heroFade } from '../patterns'
-
-const FADE_URI = heroFade()
-
 export default function Hero({ onBook }) {
-  const innerRef = useRef(null)
-
-  // content gently fades and drifts as you scroll away — nothing more
-  useEffect(() => {
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
-    const el = innerRef.current
-    if (!el) return
-
-    let raf = 0
-    const update = () => {
-      raf = 0
-      const y = window.scrollY
-      const vh = window.innerHeight
-      const p = Math.min(1, y / (vh * 0.6))
-      el.style.opacity = String(1 - p * 0.9)
-      el.style.transform = `translateY(${y * 0.14}px)`
-    }
-    const onScroll = () => {
-      if (!raf) raf = requestAnimationFrame(update)
-    }
-    window.addEventListener('scroll', onScroll, { passive: true })
-    return () => {
-      window.removeEventListener('scroll', onScroll)
-      if (raf) cancelAnimationFrame(raf)
-    }
-  }, [])
-
   return (
     <section className="hero" id="top">
-      <div className="container hero-inner" ref={innerRef}>
-        <span className="hero-brand">jaeblendzzz</span>
+      <div className="container hero-meta small-caps">
+        <span>Est. 2016</span>
+        <span>Barbershop — Stockton, California</span>
+        <span>Tue–Sat, 10–6</span>
+      </div>
 
-        <h1 className="h1 hero-title">Sharp. Every&nbsp;time.</h1>
-
-        <p className="lead hero-sub">
-          Precision cuts by Jasiel Escalera. Stockton,&nbsp;CA.
+      <div className="container hero-mid">
+        <p className="hero-statement">
+          Appointment-only barbershop by Jasiel Escalera. Fades, tapers,
+          straight-razor work.
         </p>
 
-        <div className="hero-ctas">
+        <div className="hero-status">
+          <span className="status-dot" aria-hidden="true" />
+          <span>Booking open — appointments through Square</span>
+        </div>
+
+        <div className="hero-actions">
           <button type="button" className="pill" onClick={onBook}>
             Book an appointment
           </button>
-          <a href="#services" className="tlink">
-            Explore services &rsaquo;
+          <a href="tel:+12094061061" className="tlink">
+            (209) 406-1061
           </a>
         </div>
       </div>
 
-      <div className="hero-fade-band" style={{ backgroundImage: FADE_URI }} aria-hidden="true" />
+      <div className="hero-word-wrap" aria-hidden="true">
+        <div className="hero-word">Jaeblendzzz</div>
+      </div>
     </section>
   )
 }

@@ -51,20 +51,26 @@ export default function Services({ onBook }) {
   return (
     <section id="services">
       <div className="container">
-        <div className="section-head">
-          <h2 className="h2">The menu.</h2>
-          <p className="lead">Straightforward, like it should be. Real prices, straight from the book.</p>
+        <div className="sec-head">
+          <div className="sec-title">
+            <span className="sec-num">01</span>
+            <h2>Services</h2>
+          </div>
+          <p className="sec-note">
+            Prices as listed in the book. Card, Apple&nbsp;Pay, Google&nbsp;Pay
+            and Cash&nbsp;App accepted.
+          </p>
         </div>
 
         <div className="packages reveal" ref={packagesRef}>
           {PACKAGES.map((pkg, i) => (
             <article className="package stagger-item" style={{ '--i': i }} key={pkg.name}>
-              <h3 className="h3">{pkg.name}</h3>
+              <h3>{pkg.name}</h3>
               <p>{pkg.desc}</p>
               <span className="package-price">{pkg.price}</span>
               <span className="package-duration">{pkg.duration}</span>
               <button type="button" className="tlink" onClick={onBook}>
-                Book &rsaquo;
+                Book this
               </button>
             </article>
           ))}
@@ -73,7 +79,7 @@ export default function Services({ onBook }) {
         <div className="reveal" ref={menuRef}>
           {MENU.map((group) => (
             <div className="menu-group" key={group.label}>
-              <span className="label">{group.label}</span>
+              <span className="small-caps">{group.label}</span>
               {group.items.map((item) => (
                 <div className="menu-row" key={item.name}>
                   <div className="menu-main">
@@ -88,7 +94,9 @@ export default function Services({ onBook }) {
           ))}
 
           <p className="menu-note">
-            Visa · Mastercard · Amex · Discover · Apple&nbsp;Pay · Google&nbsp;Pay · Cash&nbsp;App
+            Running late? Five minutes of grace, then the slot counts as a
+            no-show. Cancellations need 24 hours notice — late cancels carry a
+            $45 fee.
           </p>
         </div>
       </div>

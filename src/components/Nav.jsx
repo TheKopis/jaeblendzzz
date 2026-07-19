@@ -2,8 +2,8 @@ import { useEffect, useState } from 'react'
 
 const LINKS = [
   { label: 'Services', href: '#services', id: 'services' },
-  { label: 'Gallery', href: '#gallery', id: 'gallery' },
-  { label: 'About', href: '#about', id: 'about' },
+  { label: 'Work', href: '#gallery', id: 'gallery' },
+  { label: 'Info', href: '#about', id: 'about' },
 ]
 
 export default function Nav({ onBook }) {
@@ -46,7 +46,7 @@ export default function Nav({ onBook }) {
     <header className={`nav ${scrolled || open ? 'scrolled' : ''}`}>
       <div className="container nav-inner">
         <a href="#top" className="nav-logo" onClick={() => setOpen(false)}>
-          jaeblendzzz
+          Jaeblendzzz
         </a>
 
         <nav>
