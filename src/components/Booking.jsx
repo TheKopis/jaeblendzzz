@@ -6,11 +6,7 @@ export default function Booking({ onBook }) {
     <section id="book" className="cta-band">
       <div className="container cta-inner">
         <Crown className="cta-crown" />
-        <h2 className="display cta-title">
-          Get in the
-          <br />
-          chair.
-        </h2>
+        <h2 className="display cta-title">Get in the chair.</h2>
 
         <div className="cta-row">
           <button type="button" className="pill pill-paper" onClick={onBook}>

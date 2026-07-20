@@ -36,7 +36,7 @@ export default function About() {
       <div className="container">
         <div className="sec-head">
           <div className="sec-title">
-            <span className="sec-num">04</span>
+            <span className="sec-num">IV.</span>
             <h2>Info</h2>
           </div>
         </div>

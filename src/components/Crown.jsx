@@ -31,7 +31,7 @@ export default function Crown({ className = '', solid = false }) {
           <circle cx="60" cy="8" r="5" stroke="currentColor" strokeWidth="3" />
           <circle cx="103" cy="21" r="4.5" stroke="currentColor" strokeWidth="3" />
           <rect x="21" y="66" width="78" height="14" rx="3" stroke="currentColor" strokeWidth="3" />
-          <circle className="crown-gem" cx="60" cy="73" r="3.6" fill="#cf2e1f" />
+          <circle className="crown-gem" cx="60" cy="73" r="3.6" fill="var(--gem, #a3352c)" />
         </>
       )}
     </svg>

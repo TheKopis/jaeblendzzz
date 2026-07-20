@@ -4,7 +4,7 @@
 
 const W = 300
 const H = 380
-const INK = '%23d9d6ce' // url-encoded chalk for halftones on the dark board
+const INK = '%23c2a35c' // url-encoded antique gold for the halftone artwork
 
 // deterministic pseudo-random so builds are stable
 function seeded(seed) {

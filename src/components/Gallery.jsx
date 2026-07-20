@@ -21,7 +21,7 @@ export default function Gallery() {
       <div className="container">
         <div className="sec-head">
           <div className="sec-title">
-            <span className="sec-num">02</span>
+            <span className="sec-num">II.</span>
             <h2>Work</h2>
           </div>
           <p className="sec-note">

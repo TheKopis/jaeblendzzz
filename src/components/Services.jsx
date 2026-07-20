@@ -54,7 +54,7 @@ export default function Services({ onBook }) {
       <div className="container">
         <div className="sec-head">
           <div className="sec-title">
-            <span className="sec-num">01</span>
+            <span className="sec-num">I.</span>
             <h2>Services</h2>
           </div>
           <p className="sec-note">
@@ -88,6 +88,7 @@ export default function Services({ onBook }) {
                     <div className="menu-name">{item.name}</div>
                     <div className="menu-desc">{item.desc}</div>
                   </div>
+                  <span className="leader" aria-hidden="true" />
                   <span className="menu-duration">{item.duration}</span>
                   <span className="menu-price">{item.price}</span>
                 </div>

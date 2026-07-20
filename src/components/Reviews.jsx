@@ -9,7 +9,7 @@ export default function Reviews() {
       <div className="container">
         <div className="sec-head">
           <div className="sec-title">
-            <span className="sec-num">03</span>
+            <span className="sec-num">III.</span>
             <h2>Words</h2>
           </div>
         </div>
@@ -17,7 +17,10 @@ export default function Reviews() {
         <div className="quote-list reveal" ref={ref}>
           {REVIEWS.slice(0, 3).map((review, i) => (
             <figure className="quote stagger-item" style={{ '--i': i }} key={review.name}>
-              <blockquote>“{review.quote}”</blockquote>
+              <span className="quote-mark" aria-hidden="true">
+                “
+              </span>
+              <blockquote>{review.quote}</blockquote>
               <figcaption>{review.name}</figcaption>
             </figure>
           ))}

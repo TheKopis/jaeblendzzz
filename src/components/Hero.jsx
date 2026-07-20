@@ -1,4 +1,4 @@
-import Crown from './Crown'
+import Emblem from './Emblem'
 import { heroFade } from '../patterns'
 
 const FADE_URI = heroFade()
@@ -7,6 +7,7 @@ export default function Hero({ onBook }) {
   return (
     <section className="hero" id="top">
       <div className="hero-dots" style={{ backgroundImage: FADE_URI }} aria-hidden="true" />
+
       <div className="container hero-meta small-caps">
         <span>Est. 2016</span>
         <span>Barbershop — Stockton, California</span>
@@ -14,32 +15,30 @@ export default function Hero({ onBook }) {
       </div>
 
       <div className="container hero-mid">
-        <div className="hero-left">
-          <p className="hero-statement">
-            Appointment-only barbershop by Jasiel Escalera. Fades, tapers,
-            straight-razor work.
-          </p>
+        <Emblem />
 
-          <div className="hero-status">
-            <span className="status-dot" aria-hidden="true" />
-            <span>Booking open — appointments through Square</span>
-          </div>
+        <p className="hero-statement">
+          Appointment-only barbershop by <strong>Jasiel Escalera</strong>.
+          Fades, tapers, straight-razor work.
+        </p>
 
-          <div className="hero-actions">
-            <button type="button" className="pill" onClick={onBook}>
-              Book an appointment
-            </button>
-            <a href="tel:+12094061061" className="tlink">
-              (209) 406-1061
-            </a>
-          </div>
+        <div className="hero-status">
+          <span className="status-dot" aria-hidden="true" />
+          <span>Booking open — appointments through Square</span>
         </div>
 
-        <Crown className="hero-crown" />
+        <div className="hero-actions">
+          <button type="button" className="pill" onClick={onBook}>
+            Book an appointment
+          </button>
+          <a href="tel:+12094061061" className="tlink">
+            (209) 406-1061
+          </a>
+        </div>
       </div>
 
       <div className="hero-word-wrap" aria-hidden="true">
-        <div className="hero-word">Jaeblendzzz</div>
+        <div className="hero-word">JAEBLENDZZZ</div>
       </div>
     </section>
   )
